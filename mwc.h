@@ -93,9 +93,9 @@ typedef struct mwc_random_t {
 static inline uint32_t mwc_initial_c(void) {
   uint32_t mwc_initial_carry = 0;
 
-  do
+  do {
 		mwc_initial_carry = MWC_SYSTEM_RAND32();
-	while (mwc_initial_carry >= MWC_C_MAX);
+  } while (mwc_initial_carry >= MWC_C_MAX);
 
   return mwc_initial_carry;
 }
