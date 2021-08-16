@@ -56,10 +56,11 @@ value to match your function.
 Here is an example
 
 ```C
-#define MWC_SYSTEM_RAND32 my_rand
-#include "mwc.h"
 // Defining the system random function used to create the seed array
 uint32_t my_rand(void) {
   return 4;
 }
+
+#define MWC_SYSTEM_RAND32 my_rand
+#include "mwc.h"
 ```
