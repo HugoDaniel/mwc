@@ -26,10 +26,10 @@
 **
 ** The API makes use of a system random number generator to create the initial
 ** seeds. By default the `arc4random()` from stdlib.h is used. If your
-** system does not support it, or if you want to used something different, then
-** define the MWC_SYSTEM_RAND32 preprocessor value to the desired method.
+** system does not support it, or if you want to use something different, then
+** define the MWC_SYSTEM_RAND32 macro value to the desired method.
 ** 
-** This random number generator is split in several functions. 
+** This random number generator is split in 4 functions. 
 **
 ** - mwc_create(): creates the mwc_random_t data type, this is not a pure
 **     method because it makes use of the MWC_SYSTEM_RAND32 function.
@@ -57,7 +57,6 @@
 */
 
 #define MWC_H (1)
-#include <stddef.h> // size_t
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -67,7 +66,8 @@ extern "C" {
 #define MWC_SYSTEM_RAND32 arc4random
 #endif
 
-#include <stdint.h> // uint32_t
+#include <stddef.h> // size_t
+#include <stdint.h> // uint32_t, uint64_t
 
 #define MWC_CYCLE 4096         // as Marsaglia recommends
 #define MWC_C_MAX 809430660    // as Marsaglia recommends
